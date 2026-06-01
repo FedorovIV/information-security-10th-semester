@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { MDXProvider } from "@mdx-js/react";
 import Book from "../Информационная безопасность 10-й семестр.mdx";
 import ExamAnswers from "../Ответы к зачёту Информационная безопасность 10-й семестр.mdx";
 import SelfCheckPage from "./SelfCheckPage.jsx";
@@ -26,6 +27,14 @@ const documents = [
     Component: SelfCheckPage,
   },
 ];
+
+const mdxComponents = {
+  table: (props) => (
+    <div className="tableWrap">
+      <table {...props} />
+    </div>
+  ),
+};
 
 export default function App() {
   const [activeId, setActiveId] = useState(documents[0].id);
@@ -81,7 +90,9 @@ export default function App() {
         </header>
 
         <article className="mdxArticle">
-          <ActiveComponent />
+          <MDXProvider components={mdxComponents}>
+            <ActiveComponent />
+          </MDXProvider>
         </article>
       </main>
     </div>
