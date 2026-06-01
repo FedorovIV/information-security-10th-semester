@@ -1,0 +1,21 @@
+{
+  "name": "infosec-8-semester-mdx-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node tools/generate_selfcheck_data.mjs && vite build && node tools/copy_static_assets.mjs",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.9",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "@mdx-js/rollup": "^3.1.1",
+    "remark-frontmatter": "^5.0.0"
+  },
+  "devDependencies": {}
+}
